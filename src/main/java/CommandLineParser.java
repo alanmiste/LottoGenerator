@@ -1,12 +1,18 @@
-import java.util.Arrays;
+import java.util.ArrayList;
 
 public class CommandLineParser {
     public String[] parseArguments(String[] args) {
+        ArrayList<String> argumentsList = new ArrayList<>();
 
-        if (args.length > 0) {
-            return Arrays.copyOfRange(args, 1, args.length);
-        } else {
-            return new String[0];
+        // Add all command line arguments to ArrayList
+        for (String arg : args) {
+            argumentsList.add(arg);
         }
+
+        // Convert ArrayList to String array
+        String[] parsedArgs = new String[argumentsList.size()];
+        parsedArgs = argumentsList.toArray(parsedArgs);
+
+        return parsedArgs;
     }
 }

@@ -1,13 +1,23 @@
 public class Main {
     public static void main(String[] args) {
+
         CommandLineParser parser = new CommandLineParser();
         String[] parsedArgs = parser.parseArguments(args);
 
         LotteryGenerator generator;
-        if (parsedArgs.length > 0 && parsedArgs[0].equalsIgnoreCase("Eurojackpot")) {
-            generator = new EurojackpotGenerator();
+
+        if (parsedArgs.length > 0) {
+            String gameType = parsedArgs[0].toLowerCase();
+            if (gameType.equals("eurojackpot")) {
+                generator = new EurojackpotGenerator();
+            } else if (gameType.equals("lotto")) {
+                generator = new LottoGenerator();
+            } else {
+                System.err.println("Invalid game type. Valid game types are: lotto, eurojackpot");
+                return;
+            }
         } else {
-            generator = new LottoGenerator();
+            generator = new LottoGenerator(); // Default game type
         }
 
         UnluckyNumbersManager unluckyNumbersManager = new UnluckyNumbersManager();
