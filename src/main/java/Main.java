@@ -49,7 +49,9 @@ public class Main {
                 int number = Integer.parseInt(args[i]);
                 unluckyNumbersManager.addUnluckyNumber(number);
             } catch (NumberFormatException e) {
+                if(args[i].length()<2){
                 System.err.println("Invalid number: " + args[i]);
+                }
             }
         }
         unluckyNumbersManager.saveUnluckyNumbersToFile(); // Save unlucky numbers to file
@@ -62,7 +64,9 @@ public class Main {
                 int number = Integer.parseInt(args[i]);
                 unluckyNumbersManager.removeUnluckyNumber(number);
             } catch (NumberFormatException e) {
-                System.err.println("Invalid number: " + args[i]);
+                if(args[i].length()<2) {
+                    System.err.println("Invalid number: " + args[i]);
+                }
             }
         }
         unluckyNumbersManager.saveUnluckyNumbersToFile(); // Save unlucky numbers to file
