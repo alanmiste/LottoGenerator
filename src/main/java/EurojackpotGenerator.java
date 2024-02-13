@@ -4,7 +4,7 @@ import java.util.TreeSet;
 public class EurojackpotGenerator implements LotteryGenerator {
     @Override
     public String generateNumbers(Set<Integer> excludedNumbers) {
-        Set<Integer> eurojackpotNumbers = new TreeSet<>(); // استخدام TreeSet للترتيب الصحيح
+        Set<Integer> eurojackpotNumbers = new TreeSet<>();
 
         // Generate Eurojackpot numbers logic while excluding excludedNumbers
         while (eurojackpotNumbers.size() < 5) {

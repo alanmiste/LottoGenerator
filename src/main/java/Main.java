@@ -1,6 +1,9 @@
+import java.util.Scanner;
 import java.util.Set;
 
 public class Main {
+    private static final Scanner scanner = new Scanner(System.in);
+
     public static void main(String[] args) {
         CommandLineParser parser = new CommandLineParser();
         String[] parsedArgs = parser.parseArguments(args);
@@ -36,10 +39,21 @@ public class Main {
         }
 
         // Generate numbers while excluding unlucky numbers
-        String numbers = generator.generateNumbers(unluckyNumbersManager.getUnluckyNumbers());
+        generateNumbers(generator, unluckyNumbersManager.getUnluckyNumbers());
 
-        // Print generated numbers
-        System.out.println("Generated numbers: " + numbers);
+        // Prompt user for generating additional sets of numbers
+        while (true) {
+            System.out.println("Do you want to generate another set of numbers? (yes|y / no|n)");
+            String input = scanner.nextLine();
+            if (input.equalsIgnoreCase("yes")|| input.equalsIgnoreCase("y")) {
+                generateNumbers(generator, unluckyNumbersManager.getUnluckyNumbers());
+            } else if (input.equalsIgnoreCase("no")||input.equalsIgnoreCase("n")) {
+                System.out.println("Thank you for using our lottery number generator.");
+                break;
+            } else {
+                System.out.println("Invalid input. Please enter 'yes / y' or 'no / n'.");
+            }
+        }
     }
 
     private static void addUnluckyNumbers(String[] args, UnluckyNumbersManager unluckyNumbersManager) {
@@ -49,8 +63,8 @@ public class Main {
                 int number = Integer.parseInt(args[i]);
                 unluckyNumbersManager.addUnluckyNumber(number);
             } catch (NumberFormatException e) {
-                if(args[i].length()<2){
-                System.err.println("Invalid number: " + args[i]);
+                if(args[i].length()<2) {
+                    System.err.println("Invalid number: " + args[i]);
                 }
             }
         }
@@ -79,5 +93,10 @@ public class Main {
             System.out.print(number + " ");
         }
         System.out.println();
+    }
+
+    private static void generateNumbers(LotteryGenerator generator, Set<Integer> excludedNumbers) {
+        String numbers = generator.generateNumbers(excludedNumbers);
+        System.out.println("Generated numbers: " + numbers);
     }
 }
