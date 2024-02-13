@@ -1,10 +1,10 @@
-import java.util.HashSet;
 import java.util.Set;
+import java.util.TreeSet;
 
 public class EurojackpotGenerator implements LotteryGenerator {
     @Override
     public String generateNumbers(Set<Integer> excludedNumbers) {
-        Set<Integer> eurojackpotNumbers = new HashSet<>();
+        Set<Integer> eurojackpotNumbers = new TreeSet<>(); // استخدام TreeSet للترتيب الصحيح
 
         // Generate Eurojackpot numbers logic while excluding excludedNumbers
         while (eurojackpotNumbers.size() < 5) {

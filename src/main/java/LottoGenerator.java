@@ -1,10 +1,10 @@
-import java.util.HashSet;
 import java.util.Set;
+import java.util.TreeSet;
 
 public class LottoGenerator implements LotteryGenerator {
     @Override
     public String generateNumbers(Set<Integer> excludedNumbers) {
-        Set<Integer> lottoNumbers = new HashSet<>();
+        Set<Integer> lottoNumbers = new TreeSet<>();
 
         // Generate Lotto numbers logic while excluding excludedNumbers
         while (lottoNumbers.size() < 6) {
