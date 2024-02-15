@@ -1,9 +1,11 @@
 import java.util.Set;
 import java.util.TreeSet;
-
 public class EurojackpotGenerator implements LotteryGenerator {
     @Override
     public String generateNumbers(Set<Integer> excludedNumbers) {
+
+        Logger.logEvent("Starting Eurojackpot numbers generation.");
+
         Set<Integer> eurojackpotNumbers = new TreeSet<>();
 
         // Generate Eurojackpot numbers logic while excluding excludedNumbers
@@ -20,6 +22,9 @@ public class EurojackpotGenerator implements LotteryGenerator {
                 eurojackpotNumbers.add(randomNumber);
             }
         }
+
+        Logger.logEvent("Generated Eurojackpot numbers: "+ eurojackpotNumbers );
+        Logger.logEvent("Eurojackpot numbers generation completed.");
 
         // Convert Set<Integer> to String
         StringBuilder result = new StringBuilder();
