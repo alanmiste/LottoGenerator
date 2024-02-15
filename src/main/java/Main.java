@@ -1,10 +1,11 @@
 import java.util.Scanner;
 import java.util.Set;
-
 public class Main {
     private static final Scanner scanner = new Scanner(System.in);
-
     public static void main(String[] args) {
+
+        Logger.logEvent("Application started.");
+
         CommandLineParser parser = new CommandLineParser();
         String[] parsedArgs = parser.parseArguments(args);
 
@@ -18,6 +19,7 @@ public class Main {
                 generator = new LottoGenerator();
             } else {
                 System.err.println("Invalid game type. Valid game types are: lotto, eurojackpot");
+                Logger.logError("Invalid game type. Valid game types are: lotto, eurojackpot");
                 return;
             }
         } else {
@@ -49,6 +51,7 @@ public class Main {
                 generateNumbers(generator, unluckyNumbersManager.getUnluckyNumbers());
             } else if (input.equalsIgnoreCase("no")||input.equalsIgnoreCase("n")) {
                 System.out.println("Thank you for using our lottery number generator.");
+                Logger.logEvent("Application terminated.");
                 break;
             } else {
                 System.out.println("Invalid input. Please enter 'yes / y' or 'no / n'.");
@@ -62,9 +65,11 @@ public class Main {
             try {
                 int number = Integer.parseInt(args[i]);
                 unluckyNumbersManager.addUnluckyNumber(number);
+                Logger.logEvent("Unlucky number "+number+" added successfully.");
             } catch (NumberFormatException e) {
                 if(args[i].length()<2) {
                     System.err.println("Invalid number: " + args[i]);
+                    Logger.logError("Invalid number: " + args[i]);
                 }
             }
         }
@@ -77,9 +82,11 @@ public class Main {
             try {
                 int number = Integer.parseInt(args[i]);
                 unluckyNumbersManager.removeUnluckyNumber(number);
+                Logger.logEvent("Unlucky number "+number+" removed successfully.");
             } catch (NumberFormatException e) {
                 if(args[i].length()<2) {
                     System.err.println("Invalid number: " + args[i]);
+                    Logger.logError("Invalid number: " + args[i]);
                 }
             }
         }
@@ -93,10 +100,12 @@ public class Main {
             System.out.print(number + " ");
         }
         System.out.println();
+        Logger.logEvent("Unlucky numbers displayed.");
     }
 
     private static void generateNumbers(LotteryGenerator generator, Set<Integer> excludedNumbers) {
         String numbers = generator.generateNumbers(excludedNumbers);
         System.out.println("Generated numbers: " + numbers);
+        Logger.logEvent("Generated numbers: "+ numbers);
     }
 }
