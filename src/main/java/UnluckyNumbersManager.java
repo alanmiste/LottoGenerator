@@ -1,6 +1,5 @@
 import java.io.*;
 import java.util.*;
-
 public class UnluckyNumbersManager {
     private static final String UNLUCKY_NUMBERS_FILE = "unlucky_numbers.txt";
     private Set<Integer> unluckyNumbers;
@@ -18,6 +17,7 @@ public class UnluckyNumbersManager {
             }
         } catch (IOException e) {
             System.err.println("Error loading unlucky numbers: " + e.getMessage());
+            Logger.logError("Error loading unlucky numbers: " + e.getMessage());
         }
     }
 
@@ -28,6 +28,7 @@ public class UnluckyNumbersManager {
             }
         } catch (IOException e) {
             System.err.println("Error saving unlucky numbers: " + e.getMessage());
+            Logger.logError("Error saving unlucky numbers: " + e.getMessage());
         }
     }
 
@@ -35,8 +36,10 @@ public class UnluckyNumbersManager {
         if (isValidNumber(number)) {
             unluckyNumbers.add(number);
             System.out.println("Unlucky number " + number + " added successfully.");
+            Logger.logEvent("Unlucky number "+number+" added successfully.");
         } else {
-            System.err.println("Invalid unlucky number. Please enter a number within the valid range.");
+            System.err.println("Invalid unlucky number. Please enter a number within the valid range 1-49.");
+            Logger.logError("Invalid unlucky number: "+number+". Please enter a number within the valid range.");
         }
     }
 
@@ -44,8 +47,10 @@ public class UnluckyNumbersManager {
         if (unluckyNumbers.contains(number)) {
             unluckyNumbers.remove(number);
             System.out.println("Unlucky number " + number + " removed successfully.");
+            Logger.logEvent("Unlucky number "+number+" removed successfully.");
         } else {
             System.err.println("Unlucky number " + number + " not found.");
+            Logger.logError("Unlucky number " + number + " not found.");
         }
     }
 
