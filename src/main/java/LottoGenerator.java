@@ -1,9 +1,9 @@
 import java.util.Set;
 import java.util.TreeSet;
-
 public class LottoGenerator implements LotteryGenerator {
     @Override
     public String generateNumbers(Set<Integer> excludedNumbers) {
+        Logger.logEvent("Starting Lotto numbers generation.");
         Set<Integer> lottoNumbers = new TreeSet<>();
 
         // Generate Lotto numbers logic while excluding excludedNumbers
@@ -13,7 +13,8 @@ public class LottoGenerator implements LotteryGenerator {
                 lottoNumbers.add(randomNumber);
             }
         }
-
+        Logger.logEvent("Generated Lotto numbers: "+ lottoNumbers);
+        Logger.logEvent("Lotto numbers generation completed.");
         // Convert Set<Integer> to String
         StringBuilder result = new StringBuilder();
         for (int number : lottoNumbers) {
