@@ -39,7 +39,7 @@ public class Logger {
 //            BufferedWriter writer = new BufferedWriter(new FileWriter(LOG_FILE_NAME, true));
             createLogFileIfNotExists();
             BufferedWriter writer = new BufferedWriter(new FileWriter(LOG_DIRECTORY + LOG_FILE_NAME, true));
-            writer.write("ERROR: " + error);
+            writer.write("--> ERROR: " + error);
             writer.newLine();
             writer.close();
         } catch (IOException e) {
