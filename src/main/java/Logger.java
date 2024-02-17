@@ -19,7 +19,6 @@ public class Logger {
     public static void logEvent(String event) {
         try {
             createLogFileIfNotExists();
-//            BufferedWriter writer = new BufferedWriter(new FileWriter(LOG_FILE_NAME, true));
             BufferedWriter writer = new BufferedWriter(new FileWriter(LOG_DIRECTORY + LOG_FILE_NAME, true));
             writer.write(event+ " "+ dateTimeFormatter.format(now));
             writer.newLine();
