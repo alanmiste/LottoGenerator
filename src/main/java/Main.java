@@ -1,7 +1,7 @@
 import java.util.Scanner;
 import java.util.Set;
 public class Main {
-    private static final Scanner scanner = new Scanner(System.in);
+//    private static final Scanner scanner = new Scanner(System.in);
     public static void main(String[] args) {
 
         Logger.logEvent("Application started.");
@@ -43,23 +43,23 @@ public class Main {
         // Generate numbers while excluding unlucky numbers
         generateNumbers(generator, unluckyNumbersManager.getUnluckyNumbers());
 
-        // Prompt user for generating additional sets of numbers
-        while (true) {
-            System.out.println("Do you want to generate another set of numbers? (yes|y / no|n)");
-            String input = scanner.nextLine();
-            if (input.equalsIgnoreCase("yes")|| input.equalsIgnoreCase("y")) {
-                generateNumbers(generator, unluckyNumbersManager.getUnluckyNumbers());
-            } else if (input.equalsIgnoreCase("no")||input.equalsIgnoreCase("n")) {
-                System.out.println("Thank you for using our lottery number generator.");
-                Logger.logEvent("Application terminated.");
-                break;
-            } else {
-                System.out.println("Invalid input. Please enter 'yes / y' or 'no / n'.");
-            }
-        }
+//        // Prompt user for generating additional sets of numbers
+//        while (true) {
+//            System.out.println("Do you want to generate another set of numbers? (yes|y / no|n)");
+//            String input = scanner.nextLine();
+//            if (input.equalsIgnoreCase("yes")|| input.equalsIgnoreCase("y")) {
+//                generateNumbers(generator, unluckyNumbersManager.getUnluckyNumbers());
+//            } else if (input.equalsIgnoreCase("no")||input.equalsIgnoreCase("n")) {
+//                System.out.println("Thank you for using our lottery number generator.");
+//                Logger.logEvent("Application terminated.");
+//                break;
+//            } else {
+//                System.out.println("Invalid input. Please enter 'yes / y' or 'no / n'.");
+//            }
+//        }
     }
 
-    private static void addUnluckyNumbers(String[] args, UnluckyNumbersManager unluckyNumbersManager) {
+     static void addUnluckyNumbers(String[] args, UnluckyNumbersManager unluckyNumbersManager) {
         // Add unlucky numbers from command line arguments
         for (int i = 1; i < args.length; i++) {
             try {
@@ -76,7 +76,7 @@ public class Main {
         unluckyNumbersManager.saveUnluckyNumbersToFile(); // Save unlucky numbers to file
     }
 
-    private static void removeUnluckyNumbers(String[] args, UnluckyNumbersManager unluckyNumbersManager) {
+     static void removeUnluckyNumbers(String[] args, UnluckyNumbersManager unluckyNumbersManager) {
         // Remove unlucky numbers from command line arguments
         for (int i = 1; i < args.length; i++) {
             try {
@@ -93,7 +93,7 @@ public class Main {
         unluckyNumbersManager.saveUnluckyNumbersToFile(); // Save unlucky numbers to file
     }
 
-    private static void displayUnluckyNumbers(Set<Integer> unluckyNumbers) {
+     static void displayUnluckyNumbers(Set<Integer> unluckyNumbers) {
         // Display unlucky numbers
         System.out.println("Unlucky numbers:");
         for (int number : unluckyNumbers) {
@@ -103,7 +103,7 @@ public class Main {
         Logger.logEvent("Unlucky numbers displayed.");
     }
 
-    private static void generateNumbers(LotteryGenerator generator, Set<Integer> excludedNumbers) {
+    static void generateNumbers(LotteryGenerator generator, Set<Integer> excludedNumbers) {
         String numbers = generator.generateNumbers(excludedNumbers);
         System.out.println("Generated numbers: " + numbers);
         Logger.logEvent("Generated numbers: "+ numbers);
