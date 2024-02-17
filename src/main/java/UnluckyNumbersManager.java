@@ -1,7 +1,7 @@
 import java.io.*;
 import java.util.*;
 public class UnluckyNumbersManager {
-    private static final String UNLUCKY_NUMBERS_FILE = "unlucky_numbers.txt";
+    public static final String UNLUCKY_NUMBERS_FILE = "unlucky_numbers.txt";
     private Set<Integer> unluckyNumbers;
 
     public UnluckyNumbersManager() {
@@ -54,7 +54,7 @@ public class UnluckyNumbersManager {
         }
     }
 
-    private boolean isValidNumber(int number) {
+    public boolean isValidNumber(int number) {
         return number >= 1 && number <= 49; // Assuming Lotto 6aus49 range
     }
 
