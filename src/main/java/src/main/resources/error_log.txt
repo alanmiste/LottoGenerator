@@ -1,0 +1,10 @@
+Application started. 2024/02/18 12:28:47
+Parsed command line arguments: [-lo] 2024/02/18 12:28:47
+--> ERROR: Invalid game type. Valid game types are: lotto, eurojackpot
+Application started. 2024/02/18 12:29:42
+Parsed command line arguments: [lotto, -display] 2024/02/18 12:29:42
+Unlucky numbers displayed. 2024/02/18 12:29:42
+Starting Lotto numbers generation. 2024/02/18 12:29:42
+Generated Lotto numbers: [5, 7, 8, 30, 36, 44] 2024/02/18 12:29:42
+Lotto numbers generation completed. 2024/02/18 12:29:42
+Generated numbers: 5 7 8 30 36 44 2024/02/18 12:29:42
