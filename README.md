@@ -92,7 +92,7 @@ Bei der Umsetzung der Aufgabe sind folgende Punkte zu beachten:
 
 **Wie kann der Benutzer das Programm ausprobieren?**
 
-Als **Benutzer**, der das Programm zum Generieren von Lottozahlen testen möchte, müssen Sie lediglich das **LG-User**-Ordner klonen. 
+Als **Benutzer**, der das Programm zum Generieren von Lottozahlen testen möchte, müssen Sie lediglich das **LG-Users**-Ordner klonen. 
 Öffnen Sie dann die Befehlszeile oder das Terminal, wechseln Sie zum geklonten Verzeichnis und verwenden Sie die folgenden Befehle:
 
 * **Befehle zum Generieren von Zahlen:**
