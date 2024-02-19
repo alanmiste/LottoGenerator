@@ -84,3 +84,5 @@ Bei der Umsetzung der Aufgabe sind folgende Punkte zu beachten:
 - Es protokolliert Ereignisse und Fehler, die während des Betriebs der Anwendung auftreten.
 - Es speichert Protokolle in einer Textdatei zur späteren Analyse.
 - Es enthält Funktionen zum ordnungsgemäßen Protokollieren von Ereignissen und Fehlern mit Zeiterfassung und Speicherung in einer Textdatei.
+
+**Eine ausführliche Erklärung der Codes gibt es im LottoGenerator-Wiki** : [Hier klicken](https://github.com/alanmiste/LottoGenerator/wiki) 
