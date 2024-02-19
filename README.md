@@ -1,6 +1,6 @@
 # Lotto-Tippgenerator
 
-[Anforderungen](#Anforderungen) | [Kurze Dokumentation](#Kurze-Dokumentation-für-die-Lottozahlengenerierungsanwendung)
+[Anforderungen](#Anforderungen) | [Kurze Dokumentation](#Kurze-Dokumentation-für-die-Lottozahlengenerierungsanwendung) | [Bedienungsanleitung des Benutzers](#Bedienungsanleitung-des-Benutzers)
 
 ---
 
@@ -86,3 +86,52 @@ Bei der Umsetzung der Aufgabe sind folgende Punkte zu beachten:
 - Es enthält Funktionen zum ordnungsgemäßen Protokollieren von Ereignissen und Fehlern mit Zeiterfassung und Speicherung in einer Textdatei.
 
 **Eine ausführliche Erklärung der Codes gibt es im LottoGenerator-Wiki** : [Hier klicken](https://github.com/alanmiste/LottoGenerator/wiki) 
+
+---
+## Bedienungsanleitung des Benutzers.
+
+**Wie kann der Benutzer das Programm ausprobieren?**
+
+Als **Benutzer**, der das Programm zum Generieren von Lottozahlen testen möchte, müssen Sie lediglich das **LG-User**-Ordner klonen. 
+Öffnen Sie dann die Befehlszeile oder das Terminal, wechseln Sie zum geklonten Verzeichnis und verwenden Sie die folgenden Befehle:
+
+* **Befehle zum Generieren von Zahlen:**
+   - `java Main lotto`:
+     Um zufällige Zahlen für *Lotto 6aus49* zu generieren.
+   - `java Main eurojackpot`:
+     Um zufällige Zahlen für *EuroJackPot* zu generieren.
+   - Wenn der **Spieltyp** nicht wie folgt angegeben wird java Main:
+     Werden standardmäßig zufällige Zahlen für *Lotto 6aus49* generiert.
+
+        <img width="800" src="https://raw.githubusercontent.com/alanmiste/photos/master/LottoGenerator/LottoGenerator-run.png" alt="Lotto Generator- run- screenshot" />
+
+
+* **Befehl zum Hinzufügen von Unglückszahlen:**
+
+  Durch Hinzufügen des Parameters `-add` nach dem Spieltyp gefolgt von den Zahlen können Sie Zahlen hinzufügen, die Sie nicht in den zukünftig generierten Zahlen haben möchten. Diese Zahlen werden in einer Datei gespeichert, um sie bei jedem zukünftigen Spiel zu vermeiden, unabhängig vom Spieltyp. Sie können eine oder mehrere Zahlen hinzufügen, die im erlaubten Bereich von 1-49 liegen müssen.
+
+  Beispiel-1: `java Main lotto -add 3`
+
+  Beispiel-2: `java Main lotto -add 35 22 5`
+
+    <img width="800" src="https://raw.githubusercontent.com/alanmiste/photos/master/LottoGenerator/LottoGenerator-add.png" alt="Lotto Generator- add- screenshot" />
+
+* **Befehl zum Entfernen von Unglückszahlen:**
+  
+   Durch Hinzufügen des Parameters `-remove` nach dem Spieltyp gefolgt von den zu löschenden Zahlen aus der Liste der gespeicherten Unglückszahlen werden diese Zahlen aus der Datei gelöscht, sofern sie vorhanden sind. Andernfalls wird eine Benachrichtigungsmeldung angezeigt.
+
+  Beispiel-1: `java Main lotto -remove 35`
+
+  Beispiel-2: `java Main eurojackpot -remove 22 5`
+
+    <img width="800" src="https://raw.githubusercontent.com/alanmiste/photos/master/LottoGenerator/LottoGenerator-remove.png" alt="Lotto Generator- remove- screenshot" />
+
+* **Befehl zum Anzeigen der gespeicherten Unglückszahlen:**
+
+  Durch Hinzufügen des Parameters `-display` nach dem Spieltyp werden die gespeicherten Zahlen angezeigt.
+
+  Beispiel-1: `java Main lotto -display`
+
+  Beispiel-2: `java Main eurojackpot -display`
+
+    <img width="800" src="https://raw.githubusercontent.com/alanmiste/photos/master/LottoGenerator/LottoGenerator-display.png" alt="Lotto Generator- display- screenshot" />
