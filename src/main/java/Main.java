@@ -65,7 +65,6 @@ public class Main {
             try {
                 int number = Integer.parseInt(args[i]);
                 unluckyNumbersManager.addUnluckyNumber(number);
-                Logger.logEvent("Unlucky number "+number+" added successfully.");
             } catch (NumberFormatException e) {
                 if(args[i].length()<2) {
                     System.err.println("Invalid number: " + args[i]);
